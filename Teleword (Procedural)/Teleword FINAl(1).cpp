@@ -11,9 +11,6 @@ int num[15][15];
 int gridout(char grid[][15]) {
 	int i = 0;
 	char twords[225];
-
-
-
 	ifstream myfile("C:\\Users\\l190947\\Downloads\\hw4\\hw4\\sample puzzles\\teleword_1.txt");
 
 	if (myfile.fail()) { cout << "file not open"; }
@@ -30,39 +27,25 @@ int gridout(char grid[][15]) {
 
 
 	for (i = 0;i < 15;i++) {
-
-
-
-
-
 		for (j = 0;j < 15;j++) {
 
 			grid[i][j] = twords[k];
 			k++;
-
 		}
-
 	}
 	i = 0;
 	for (i = 0;i < 15;i++) {
-
-
 		for (j = 0;j < 15;j++) {
 
 			cout << setw(3) << grid[i][j];
-
 		}
 		cout << endl;
 
 	}
-
 	return 0;
 }
 
 void numbergrid (int numgrid [][15]) {
-
-	
-
 	for (int i=0;i<15;i++){
 
 		for (int j=0;j<15;j++) {
@@ -80,13 +63,10 @@ void numbergrid (int numgrid [][15]) {
 		}
 		cout << endl;
 	}
-
-
 }
 
 int pnumgrid(int numgrid[][15]) {
 
-	
 	for (int i=0;i<15;i++){
 
 		for (int j=0;j<15;j++) {
@@ -95,8 +75,6 @@ int pnumgrid(int numgrid[][15]) {
 		}
 		cout << endl;
 	}
-
-
 	return 0;
 }
 
@@ -104,9 +82,6 @@ void gridcopy(char grid[][15]) {
 
 	int i = 0;
 	char twords[225];
-
-
-
 	ifstream myfile("C:\\Users\\l190947\\Downloads\\hw4\\hw4\\sample puzzles\\teleword_1.txt");
 
 	if (myfile.fail()) { cout << "file not open"; }
@@ -123,11 +98,6 @@ void gridcopy(char grid[][15]) {
 
 
 	for (i = 0;i < 15;i++) {
-
-
-
-
-
 		for (j = 0;j < 15;j++) {
 
 			grid[i][j] = twords[k];
@@ -160,12 +130,7 @@ int ansinput(char ans[]) {
 			ans[i] = temp;
 			i++;
 		}
-
-
 	}
-
-
-
 	int x = 0;
 
 	cout << endl;
@@ -176,7 +141,6 @@ int ansinput(char ans[]) {
 	}
 
 	cout << endl;
-
 	return 0;
 }
 
@@ -189,95 +153,49 @@ bool rhsearch(char grid[][15], char temp[],  int wlcount, char gridc[][15], int 
 	bool lastword = false;
 	int p = 0;
 	bool nSame = false;
-
-
 	bool wordfound = false;
 
-
-
-	for (f = 0;f < 15;f++) {
-
-
-
-
-
+    for (f = 0;f < 15;f++) {
 		for (i = 0;i < 15;i++) {
-
-
 			int y = int(temp[d]);
-
 			int x = int(grid[f][i] + 32);
-
-
-
 			if (temp[d] == grid[f][i] || x == y)
 			{
 
-
 				if (firstMatch) { a = i; }
-
 				firstMatch = false;
-
-
 				fd = true;
-
 				d++;
-
 				wfcount++;
 
 			}
-
-
 			else if (temp[d] != grid[f][i] && !fd || x != y && !fd) {
 
 				d = 0;
-
 				wfcount = 0;
-
 				firstMatch = true;
-
 				int y = int(temp[d]);
-
 				int x = int(grid[f][i] + 32);
-
 				if (temp[d] == grid[f][i] || x == y) {
 					d++;
-
 					wfcount++;
-
 					firstMatch = true;
-
-
-
-
 					if (firstMatch) { a = i; }
 					firstMatch = false;
 				}
 			}
-
-
 			if (wfcount == wlcount) {
 				h = h + 1;
-
 				p = 0;
-
 				wordfound = true;
-
 				comma = false;
-
 				if (lastword) { dot = true; }
 
 				while (a <= i) {
-
-
 					ansfound[u] = grid[f][a];
-
 					u++;
-
 					gridc[f][a] = '.';
 					numgrid[f][a]=numgrid[f][a]+1;
-
-
 					a++;
 				}
 			}
@@ -289,14 +207,10 @@ bool rhsearch(char grid[][15], char temp[],  int wlcount, char gridc[][15], int 
 
 		i = 0;
 		
-
 	}
 
 	i = 0;
 	int j = 0;
-
-
-	
 
 	i = 0;
 
@@ -305,9 +219,6 @@ bool rhsearch(char grid[][15], char temp[],  int wlcount, char gridc[][15], int 
 		cout << ansfound[i] << " ";
 		i++;
 	}
-
-
-
 	if (wordfound) {
 
 		for (int i = 0;i < 15;i++) {
@@ -323,8 +234,6 @@ bool rhsearch(char grid[][15], char temp[],  int wlcount, char gridc[][15], int 
 		}	
 	
 	}
-		
-		
 		cout << endl;
 
 		if (wordfound) {
@@ -334,8 +243,6 @@ bool rhsearch(char grid[][15], char temp[],  int wlcount, char gridc[][15], int 
 	else {
 		return 0;
 	}
-
-
 }
 
 bool upsearch(char grid[][15], char temp[],  int wlcount, char gridc[][15], int numgrid[][15]) {
@@ -353,30 +260,18 @@ bool upsearch(char grid[][15], char temp[],  int wlcount, char gridc[][15], int 
 
 	
 	for (i = 0;i < 15;i++) {
-
 	
 			for (f = 14;f >= 0;f--) {
-
-
 			int y = int(temp[d]);
-
 			int x = int(grid[f][i] + 32);
-
-
-
 			if (temp[d] == grid[f][i] || x == y)
 			{
 
 
 				if (firstMatch) { a = f; }
-
 				firstMatch = false;
-
-
 				fd = true;
-
 				d++;
-
 				wfcount++;
 
 			}
@@ -385,25 +280,15 @@ bool upsearch(char grid[][15], char temp[],  int wlcount, char gridc[][15], int 
 			else if (temp[d] != grid[f][i] && !fd || x != y && !fd) {
 
 				d = 0;
-
 				wfcount = 0;
-
 				firstMatch = true;
-
 				int y = int(temp[d]);
-
 				int x = int(grid[f][i] + 32);
-
 				if (temp[d] == grid[f][i] || x == y) {
-					d++;
 
+                    d++;
 					wfcount++;
-
 					firstMatch = true;
-
-
-
-
 					if (firstMatch) { a = f; }
 					firstMatch = false;
 				}
@@ -412,22 +297,15 @@ bool upsearch(char grid[][15], char temp[],  int wlcount, char gridc[][15], int 
 
 			if (wfcount == wlcount) {
 				h = h + 1;
-
 				p = 0;
-
 				wordfound = true;
-
 				comma = false;
 
 				if (lastword) { dot = true; }
 
 				while (a >= f) {
-
-
 					ansfound[u] = grid[a][i];
-
 					u++;
-
 					gridc[a][i] = '.';
 					numgrid[a][i]= numgrid[a][i]+1;
 
@@ -435,8 +313,6 @@ bool upsearch(char grid[][15], char temp[],  int wlcount, char gridc[][15], int 
 					a--;
 				}
 			}
-
-
 
 			fd = false;
 		}
@@ -448,16 +324,11 @@ bool upsearch(char grid[][15], char temp[],  int wlcount, char gridc[][15], int 
 	i = 0;
 	
 	cout << wlcount;
-
-	i = 0;
-
 	while (i < u) {
 
 		cout << ansfound[i] << " ";
 		i++;
 	}
-
-
 	if (wordfound) {
 		for (int i = 0;i < 15;i++) {
 
@@ -466,13 +337,8 @@ bool upsearch(char grid[][15], char temp[],  int wlcount, char gridc[][15], int 
 				cout << setw(3) << gridc[i][j];
 
 			}
-
 			cout << endl;
-
 		}
-
-
-
 
 		return 1;
 	}
@@ -497,29 +363,16 @@ bool dosearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 
 	for (i = 0;i < 15;i++) {
 
-
 		for (f = 0;f < 15;f++) {
 
-
 			int y = int(temp[d]);
-
 			int x = int(grid[f][i] + 32);
-
-
-
 			if (temp[d] == grid[f][i] || x == y)
 			{
-
-
 				if (firstMatch) { a = f; }
-
 				firstMatch = false;
-
-
 				fd = true;
-
 				d++;
-
 				wfcount++;
 
 			}
@@ -528,25 +381,14 @@ bool dosearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 			else if (temp[d] != grid[f][i] && !fd || x != y && !fd) {
 
 				d = 0;
-
 				wfcount = 0;
-
 				firstMatch = true;
-
 				int y = int(temp[d]);
-
 				int x = int(grid[f][i] + 32);
-
 				if (temp[d] == grid[f][i] || x == y) {
 					d++;
-
 					wfcount++;
-
 					firstMatch = true;
-
-
-
-
 					if (firstMatch) { a = f; }
 					firstMatch = false;
 				}
@@ -555,41 +397,30 @@ bool dosearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 
 			if (wfcount == wlcount) {
 				h = h + 1;
-
 				p = 0;
-
 				wordfound = true;
-
 				comma = false;
-
 				if (lastword) { dot = true; }
 
 				while (a <= f) {
 
 
 					ansfound[u] = grid[a][i];
-
 					u++;
-
 					gridc[a][i] = '.';
 					numgrid[a][i]= numgrid[a][i]+1;
 					a++;
 				}
 			}
-
-			
 			fd = false;
 		}
 
 		f = 0;
-
 	}
 
-	i = 0;
-	
+
 	
 	cout << wlcount;
-
 	i = 0;
 
 	while (i < u) {
@@ -605,18 +436,11 @@ bool dosearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 			for (int j = 0;j < 15;j++) {
 
 				cout << setw(3) << gridc[i][j];
-
 			}
 
 			cout << endl;
 
 		}
-
-
-
-
-		
-		
 		return 1;
 	}
 	else {
@@ -635,9 +459,6 @@ bool lhsearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 	bool lastword = false;
 	int p = 0;
 	bool nSame = false;
-
-
-
 	
 	for (f = 0;f < 15;f++) {
 
@@ -646,24 +467,16 @@ bool lhsearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 
 
 			int y = int(temp[d]);
-
 			int x = int(grid[f][i] + 32);
-
 
 
 			if (temp[d] == grid[f][i] || x == y)
 			{
-
-
 				if (firstMatch) { a = i; }
 
 				firstMatch = false;
-
-
 				fd = true;
-
 				d++;
-
 				wfcount++;
 
 			}
@@ -672,13 +485,9 @@ bool lhsearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 			else if (temp[d] != grid[f][i] && !fd || x != y && !fd) {
 
 				d = 0;
-
 				wfcount = 0;
-
 				firstMatch = true;
-
 				int y = int(temp[d]);
-
 				int x = int(grid[f][i] + 32);
 
 				if (temp[d] == grid[f][i] || x == y) {
@@ -687,10 +496,6 @@ bool lhsearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 					wfcount++;
 
 					firstMatch = true;
-
-
-
-
 					if (firstMatch) { a = i; }
 					firstMatch = false;
 				}
@@ -699,22 +504,15 @@ bool lhsearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 
 			if (wfcount == wlcount) {
 				h = h + 1;
-
 				p = 0;
-
 				wordfound = true;
-
 				comma = false;
-
 				if (lastword) { dot = true; }
 
 				while (a >= i) {
 
-
 					ansfound[u] = grid[f][a];
-
 					u++;
-
 					gridc[f][a] = '.';
 					numgrid[f][a]= numgrid[f][a]+1;
 
@@ -755,10 +553,6 @@ i = 14;
 			cout << endl;
 
 		}
-
-
-
-
 		return 1;
 
 	}
@@ -780,34 +574,19 @@ bool drsearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 	bool nSame = false;
 	int b = 0;
 
-
-
-
-
-
 	for (g = 0;g < 15;g++) {
 
-		
-
-
-		for (int m = 0;m < 15;m++) {
-
-
+        for (int m = 0;m < 15;m++) {
 			f = m;
 			i = g;
 
 			while (i<15 && f<15) {
 
-
 				int y = int(temp[d]);
-
 				int x = int(grid[i][f] + 32);
-
-
 
 				if (temp[d] == grid[i][f] || x == y)
 				{
-
 
 					if (firstMatch) {
 						a = i;
@@ -815,12 +594,8 @@ bool drsearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 					}
 
 					firstMatch = false;
-
-
 					fd = true;
-
 					d++;
-
 					wfcount++;
 
 				}
@@ -840,14 +615,8 @@ bool drsearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 
 					if (temp[d] == grid[i][f] || x == y) {
 						d++;
-
 						wfcount++;
-
 						firstMatch = true;
-
-
-
-
 						if (firstMatch) {
 							a = i;
 							b = f;
@@ -863,20 +632,15 @@ bool drsearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 					p = 0;
 
 					wordfound = true;
-
 					comma = false;
 	
 					if (lastword) { dot = true; }
-
-
 
 					while (a <= i && b<=f) {
 
 
 						ansfound[u] = grid[a][b];
-
 						u++;
-
 						gridc[a][b] = '.';
 						numgrid[a][b]= numgrid[a][b]+1;
 
@@ -894,7 +658,6 @@ bool drsearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 
 
 		}
-
 
 	}
 	i = 0;
@@ -921,10 +684,6 @@ bool drsearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 			cout << endl;
 
 		}
-
-
-
-
 		return 1;
 	}
 	else {
@@ -946,9 +705,6 @@ bool dlsearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 
 
 	for (g = 0;g < 15;g++) {
-
-
-
 		for (int m = 14;m >= 0;m--) {
 
 			i = g;
@@ -973,12 +729,8 @@ bool dlsearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 					}
 
 					firstMatch = false;
-
-
 					fd = true;
-
 					d++;
-
 					wfcount++;
 
 				}
@@ -989,7 +741,6 @@ bool dlsearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 					d = 0;
 
 					wfcount = 0;
-
 					firstMatch = true;
 
 					int y = int(temp[d]);
@@ -1000,12 +751,7 @@ bool dlsearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 						d++;
 
 						wfcount++;
-
 						firstMatch = true;
-
-
-
-
 						if (firstMatch) {
 							a = i;
 							b = f;
@@ -1017,13 +763,9 @@ bool dlsearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 
 				if (wfcount == wlcount) {
 					h = h + 1;
-
 					p = 0;
-
 					wordfound = true;
-
 					comma = false;
-
 					if (lastword) { dot = true; }
 
 
@@ -1032,17 +774,13 @@ bool dlsearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 
 
 						ansfound[u] = grid[a][b];
-
 						u++;
-
 						gridc[a][b] = '.';
 						numgrid[a][b]= numgrid[a][b]+1;
 						b--;
 						a++;
 					}
 				}
-
-
 
 				fd = false;
 				i++;
@@ -1076,7 +814,6 @@ bool dlsearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 				cout << setw(3) << gridc[i][j];
 
 			}
-
 			cout << endl;
 
 		}
@@ -1109,7 +846,6 @@ bool ursearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 
 	for (g = 14;g >= 0;g--) {
 
-		
 		for (int m = 14;m >= 0;m--) {
 			
 			i = g;
@@ -1117,12 +853,9 @@ bool ursearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 
 			while (i >= 0 && f >= 0) {
 
-
 				int y = int(temp[d]);
 
 				int x = int(grid[i][f] + 32);
-
-
 
 				if (temp[d] == grid[i][f] || x == y)
 				{
@@ -1134,12 +867,8 @@ bool ursearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 					}
 
 					firstMatch = false;
-
-
 					fd = true;
-
 					d++;
-
 					wfcount++;
 
 				}
@@ -1148,20 +877,14 @@ bool ursearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 				else if (temp[d] != grid[i][f] && !fd || x != y && !fd) {
 
 					d = 0;
-
 					wfcount = 0;
-
 					firstMatch = true;
-
 					int y = int(temp[d]);
-
 					int x = int(grid[i][f] + 32);
 
 					if (temp[d] == grid[i][f] || x == y) {
 						d++;
-
 						wfcount++;
-
 						firstMatch = true;
 
 
@@ -1178,32 +901,22 @@ bool ursearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 
 				if (wfcount == wlcount) {
 					h = h + 1;
-
 					p = 0;
-
 					wordfound = true;
-
 					comma = false;
 					if (lastword) { dot = true; }
 
 
 
 					while (a >= i && b >= f) {
-
-
 						ansfound[u] = grid[a][b];
-
 						u++;
-
 						gridc[a][b] = '.';
 						numgrid[a][b]= numgrid[a][b]+1;
 						b--;
 						a--;
 					}
 				}
-
-
-
 				fd = false;
 				i--;
 				f--;
@@ -1232,9 +945,7 @@ bool ursearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 			for (int j = 0;j < 15;j++) {
 
 				cout << setw(3) << gridc[i][j];
-
 			}
-
 			cout << endl;
 
 		}
@@ -1265,7 +976,6 @@ bool ulsearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 	
 
 	for (g = 14;g >= 0;g--) {
-
 		m = 0;
 
 
@@ -1278,57 +988,36 @@ bool ulsearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 
 
 			while (i >= 0 && f < 15) {
-
-
 				int y = int(temp[d]);
-
 				int x = int(grid[i][f] + 32);
-
-
 
 				if (temp[d] == grid[i][f] || x == y)
 				{
-
-
 					if (firstMatch) {
 						a = i;
 						b = f;
 					}
 
 					firstMatch = false;
-
-
 					fd = true;
-
 					d++;
-
 					wfcount++;
-
 				}
 
 
 				else if (temp[d] != grid[i][f] && !fd || x != y && !fd) {
 
 					d = 0;
-
 					wfcount = 0;
-
 					firstMatch = true;
-
 					int y = int(temp[d]);
-
 					int x = int(grid[i][f] + 32);
-
 					if (temp[d] == grid[i][f] || x == y) {
 						d++;
 
 						wfcount++;
 
 						firstMatch = true;
-
-
-
-
 						if (firstMatch) {
 							a = i;
 							b = f;
@@ -1364,9 +1053,6 @@ bool ulsearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 						b++;
 					}
 				}
-
-
-
 				fd = false;
 				i--;
 				f++;
@@ -1374,8 +1060,6 @@ bool ulsearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 
 		}
 		
-
-
 	}
 
 	i = 0;
@@ -1403,9 +1087,6 @@ bool ulsearch(char grid[][15], char temp[], int wlcount, char gridc[][15], int n
 			cout << endl;
 
 		}
-
-
-
 
 		return 1;
 	}
@@ -1630,7 +1311,6 @@ int central() {
 
 			}
 
-
 		}
 
 		wordfound = false;
@@ -1667,7 +1347,6 @@ int central() {
 
 			}
 
-
 		}
 
 		wordfound = false;
@@ -1689,21 +1368,17 @@ int central() {
 					if (answ[h] != ',' && answ[h] != '.') {
 
 						temp1[p] = answ[h];
-
 						p++;
-
 						wl1count++;
 						if (answ[h] != '.') {
 							h++;
 						}
 					}
-
 					if (answ[h] == '.') { dot = true; comma = true; p = 0; }
 
 					else if (answ[h] == ',') { comma = true; p = 0; }
 
 				}
-
 
 			}
 
@@ -1739,7 +1414,6 @@ int central() {
 					else if (answ[h] == ',') { comma = true; p = 0; }
 
 				}
-
 
 			}
 
@@ -1782,22 +1456,9 @@ int central() {
 
 		wordfound = false;
 		}
-
-
 		if (dot && count==1) { lastword = true; }
 
-
-
-
-
-
-
 	}
-
-
-
-
-
 
 	cout << endl;
 	for (int i=0;i<15;i++) {
@@ -1807,7 +1468,6 @@ int central() {
 		cout << setw(3) << grid2[i][j];
 
 	}
-		
 	cout << endl;
 
 }
@@ -1820,12 +1480,10 @@ int	i = 0, j = 0;
 
 		for (j = 0;j < 15;j++)
 		{
-
 			if (grid2[i][j] != '.') {
 				teleword[u] = grid2[i][j];
 				u++;
 			}
-
 
 		}
 
@@ -1839,9 +1497,6 @@ int	i = 0, j = 0;
 		cout << teleword[j];
 	}
 	cout << endl;
-
-
-	
 	return 0;
 }
 

@@ -19,9 +19,6 @@ public:
     void recursiveSearch(int); //WRAPPER FUNCTION
     ~EngineRef();
 
-
-
-
 };
 
 template <typename T> EngineRef<T>::EngineRef() {
@@ -50,10 +47,6 @@ template <typename T> Node<T>* EngineRef<T>::recursiveSearch(Node<T>* temp, Node
         return recursiveSearch(temp, highest, input_time);
 
     }
-
-    
-
-
 }
 
 template <typename T> void EngineRef<T>::recursiveSearch(int input_time) {
@@ -68,8 +61,6 @@ template <typename T> void EngineRef<T>::recursiveSearch(int input_time) {
     cout << HighTemp->getPoints() << endl;
     cout << "Total time taken (for stages): " << endl;
     cout << HighTemp->getTime() << endl;
-
-
 }
 
 
@@ -88,7 +79,6 @@ template <typename T> void EngineRef<T>::buildLocalStack(int input_time) {
     ptr = my_Stack.pop(); //POPS FROM THE MAIN STACK (my_Stack) AND STORES IT THE TEMP_ARR.
     temp_Arr[index] = ptr;
     index++;
-
 
     while (ptr != nullptr) {
         local_stack.push(ptr);
@@ -130,10 +120,6 @@ template <typename T> void EngineRef<T>::buildLocalStack(int input_time) {
                 }
             }
 
-
-            
-
-
         }
         //THIS WORKS FOR CERTAIN NODES/STAGES WHICH ARE EQUAL TO THE INPUT TIME.
         else if (temp_Arr[index]->getTime() == input_time) {
@@ -147,17 +133,10 @@ template <typename T> void EngineRef<T>::buildLocalStack(int input_time) {
             AccTime = 0;
         }
 
-
-
-
-
-
         //INDEX (MAIN LOOP VARIABLE) IS SET BACK TO THE HISTORY.
         
         index = indexHis;
         index++;
-
-
     }
 
    
@@ -195,23 +174,12 @@ template <typename T> void EngineRef<T>::iterativeSearch(int input_time) {
         }
     }
 
-
-
     cout << "Favoured Stages are: " << endl;
     cout << HighTemp->getName() << endl;
     cout << "Total score: " << endl;
     cout << HighTemp->getPoints() << endl;
     cout << "Total time taken (for stages): " << endl;
     cout << HighTemp->getTime() << endl;
-
-
-
-
-
-
-
-
-
 
 }
 
@@ -220,5 +188,4 @@ template <typename T> EngineRef<T>::~EngineRef() {
     my_Stack.~Stack();
     local_stack.~Stack();
    
-
 }

@@ -33,8 +33,6 @@ template <typename T> Stack<T>::Stack() {
 
     total_stack_size = 0;
     head = nullptr;
-
-
 }
 
 template <typename T> Node<T>* Stack<T>::returnHead() {
@@ -63,14 +61,11 @@ template <typename T> int Stack<T>::inputInt(ifstream& fileObj) {
             index++;
         }
 
-
     }
 
      time = stoi(my_string);
 
     return time;
-
-
 }
 
 
@@ -89,10 +84,8 @@ template <typename T> void Stack<T>::buildStack() {
     while (!myFile.eof()) {
 
         Node<T>* ptr = new Node<T>();
-        
-       
 
-            arr[index] = temp;
+        arr[index] = temp;
             index++;
 
             if (temp == ' ' || temp == '\n') {
@@ -111,11 +104,7 @@ template <typename T> void Stack<T>::buildStack() {
             }
 
             temp = myFile.get();
-            
-
     }
-
-
 
 }
 
@@ -130,11 +119,8 @@ template <typename T> bool Stack<T>::push(Node<T>* ptr) {
 
     if (head == nullptr) {
 
-
         head = temp;
-        
         return true;
-
     }
     else {
 
@@ -173,25 +159,19 @@ template <typename T> Node<T>* Stack<T>::pop() {
     }
 
     return nullptr;
-
 }
 
 template <typename T> int Stack<T>::getStackSize() {
 
     return this->total_stack_size;
-
 }
 
 template <typename T> Stack<T>::~Stack() {
 
     for (head = head; head != nullptr; head = head->next) {
         head->~Node();
-
     }
     this->head = nullptr;
     delete head;
     this->total_stack_size = NULL;
-
-
-
 }

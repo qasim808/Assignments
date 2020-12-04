@@ -31,8 +31,6 @@ template <typename T> Node<T>::Node() {
     this->next = nullptr;
     this->time = 0;
     this->points = 0;
-
-
 }
 
 template <typename T> void Node<T>::initializeNode() {
@@ -41,8 +39,6 @@ template <typename T> void Node<T>::initializeNode() {
     this->next = nullptr;
     this->time = 0;
     this->points = 0;
-
-
 }
 
 template <typename T> Node<T>::Node(string name, int time, int points) {
@@ -51,7 +47,6 @@ template <typename T> Node<T>::Node(string name, int time, int points) {
     this->time = time;
     this->points = points;
     this->next = nullptr;
-
 }
 
 template <typename T> void Node<T>::setName(string input) {
@@ -72,7 +67,6 @@ template <typename T> void Node<T>::setTime(int input) {
 template <typename T> int Node<T>::getTime() {
 
     return this->time;
-
 }
 
 template <typename T> int Node<T>::getPoints() {
@@ -83,7 +77,6 @@ template <typename T> int Node<T>::getPoints() {
 template <typename T> string Node<T>::getName() {
 
     return this->name;
-
 }
 
 //COPY OPERATOR
@@ -93,9 +86,6 @@ template <typename T> void Node<T>::operator = (const Node<T>*& D) {
     time = D->getTime();
     points = D->points();
     name = D->getName();
-
-
-
 }
 template <typename T> Node<T>::~Node() {
 
@@ -104,6 +94,4 @@ template <typename T> Node<T>::~Node() {
     name = "";
     points = NULL;
     time = NULL;
-
-
 }
