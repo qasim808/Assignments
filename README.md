@@ -1,3 +1,3 @@
-# Assignments
+# Codes
 
-This will include my solutions to all (mostly) the assignments I've done in my university.
+This will include solutions to different problems and small scale programs that I've coded.
